@@ -13,8 +13,8 @@
 <ul>
 	@foreach($menu as $p)
 		<li>{{ "Nama : ". $p->nama_menu	 . ' | Harga : ' . $p->harga_menu . ' | Kategori : ' . $p->kategori}}</li>
-		<a href="{{ url("/Admin/Menu/Ubah/$p->id_menu")}}">Edit</a>
-		<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ url("/Admin/Menu/Delete/$p->id_menu") }}" method="POST">
+		<a href="{{ url('/Admin/Menu/Ubah/$p->id_menu')}}">Edit</a>
+		<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ url('/Admin/Menu/Delete/$p->id_menu') }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>

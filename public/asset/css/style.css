@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;700;600;800;900&display=swap');
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #585454;
+    border-radius: 10px;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: #302C2C;
+}
+
+.main {
+    max-width: 375px;
+    /* height: 580px; */
+    border: 1px solid rgb(255, 255, 255);
+    box-sizing: border-box;
+    background: rgb(255, 255, 255);
+}
+
+body {
+    background: rgb(182, 182, 182);
+}
+
+.keranjang {
+    background-color: #FFD12F;
+    padding: 5px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.tag-line {
+    background-color: #FFD12F;
+    padding: 7px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.item-main {
+    background-color: #F2F2F2;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+.item {
+    background-color: #F2F2F2;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.item-main .text-1 {
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.item-main .text-2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.kategori {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.kategori-1 {
+    width: 130px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: #FFD12F;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.rekomend {
+    background: #585454;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.gambar {
+    border-radius: 100%;
+}
+
+.rekomend .bag-2 {
+    background-color: #7A7878;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.deskripsi {
+    font-size: 11px;
+    color: #CCC7C7;
+}
+
+.harga {
+    background-color: #FFD12F;
+    font-weight: 800;
+    padding: 4px;
+    font-size: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.waktu {
+    color: #FFD12F;
+    font-weight: 800;
+    font-size: 15px;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+
+.detail-menu {
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.jenis {
+    background: #585454;
+    padding: 55px 10px;
+    border-radius: 15px;
+    font-weight: 300;
+}
+
+.deskripsi-makanan {
+    padding: 15px;
+    font-size: 13px;
+}
+
+.deskrpisi-pesanan {
+    padding: 5px 10px;
+}
+
+.waktu-pesan {
+    background: #585454;
+    font-size: 10px;
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.harga-pesan {
+    background-color: #FFD12F;
+    font-weight: 800;
+    padding: 5px;
+    font-size: 10px;
+    border-radius: 10px;
+    margin-left: 4px;
+
+}
+
+.pesan {
+    background: #585454;
+    padding: 5px;
+    color: white;
+    border-radius: 20px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.list-pesanan {
+    background-color: #F2F2F2;
+    padding: 10px;
+    border-radius: 10px;
+    height: 400px;
+}
+
+.code {
+    background-color: #FFD12F;
+    padding: 5px;
+    border-radius: 25px;
+    font-weight: 900;
+}
+
+.text-secondary {
+    color: #CCC7C7;
+}
+
+.bg-primer {
+    background-color: #F2F2F2;
+}
+
+.bg-kuning {
+    background-color: #FFD12F;
+}
+
+.beli {
+    background: white;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+.hapus {
+    background: rgb(228, 71, 71);
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-top: 2px;
+    height: auto;
+}
+
+.cart {
+    background: #929292;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 350px;
+    height: 100%;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    width: 80%;
+    border: 1px solid #58545459;
+    border-radius: 10px;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}

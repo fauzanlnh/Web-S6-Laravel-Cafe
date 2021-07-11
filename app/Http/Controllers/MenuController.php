@@ -4,8 +4,57 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use App\Models\Pemesanan;
 class MenuController extends Controller
 {
+    //Customer
+    //Menampilkan daftar menu minuman
+    public function createMinuman(){
+        $DetailController = new DetailPemesananController();
+        $daftar_pesanan = $DetailController->getAllByIdPesanan();
+        $minuman = $this->getMinuman();
+        $datapesanan = $this->getIdPesanan();
+        return view('Pemesanan/formtambahminuman', ['list_minuman' => $minuman, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+    }
+    //Menampilkan daftar menu makanan
+    public function createMakanan(){
+        $DetailController = new DetailPemesananController();
+        $daftar_pesanan = $DetailController->getAllByIdPesanan();
+        $makanan = $this->getMakanan();
+        $datapesanan = $this->getIdPesanan();
+        return view('Pemesanan/formtambahmakanan', ['list_makanan' => $makanan, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+    }
+    //Menampilkan detail menu
+    public function detailMenu(){
+        $idmenu = $this->getIdMenu();
+        $detail = $this->getMenuById($idmenu);
+        $datapesanan =  $this->getIdPesanan();
+        return view('Pemesanan/detailmenu', ['detail_menu' => $detail, 'a' => $datapesanan]);
+    }
+    //Mengambil Id Menu
+    public function getIdMenu(){
+        $currentURL = \URL::current();
+        $tes = explode('/',$currentURL);
+        return $tes[11];
+    }
+    //Mengambil Id Pesanan dari No Meja
+    public function getNoMeja(){
+        $currentURL = \URL::current();
+        $tes = explode('/',$currentURL);
+        return $tes[8];
+    }
+    public function getIdPesanan(){
+        /*$pemesanan = Pemesanan::where('no_meja', $this->getNoMeja())
+                ->get();*/
+        $pemesanan = Pemesanan::select('*')
+            ->where('no_meja', '=', $this->getNoMeja())
+            ->where('status_pembayaran', '=', "Masih")
+            ->get();
+        return $pemesanan;
+    }
+
+
+    //ADMIN
     //Menampilkan Data 
     public function index(){
         //return"Menu Index";
@@ -68,5 +117,28 @@ class MenuController extends Controller
         }else{
             return redirect('/Admin/Menu')->with('error', 'Menu Gagal Dihapus');
         }
+    }
+    //Mengambil semua data menu kategori makanan
+    public function getMakanan(){
+        $listMa = Menu::select('*')
+            ->where('kategori', '=', "Makanan")
+            ->where('status', '=', "Tersedia")
+            ->get();
+        return $listMa;
+    }
+    //Mengambil semua data menu kategori minuman
+    public function getMinuman(){
+        $listMi = Menu::select('*')
+            ->where('kategori', '=', "Minuman")
+            ->where('status', '=', "Tersedia")
+            ->get();
+        return $listMi;
+    }
+    public function getMenuById($id){
+        /*$listMenu = Menu::select('*')
+            ->where('kategori', '=', "Minuman")
+            ->get();*/
+        $listMenu = Menu::find($id);
+        return $listMenu;
     }
 }

@@ -16,5 +16,7 @@ class Menu extends Model
     protected $fillable = [
         'nama_menu', 'harga_menu', 'kategori', 'status'
     ];
-
+    public function Detail_Pemesanan(){
+        return $this->hasMany('App\Models\Detail_Pemesanan');
+    }
 }
