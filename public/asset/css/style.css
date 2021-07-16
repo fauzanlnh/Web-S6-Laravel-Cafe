@@ -250,6 +250,87 @@ body {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    float: right;
+}
+
+.checkout {
+    background-color: #ffac2f;
+    padding: 5px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 13px;
+    float: right;
+}
+
+.bg-abu {
+    background-color: #F2F2F2;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    height: 350px;
+}
+
+.bg-abu2 {
+    background-color: #F2F2F2;
+    margin-top: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    height: 440px;
+}
+
+.active {
+    background-color: #5BE059;
+    border-radius: 20px;
+    padding: 5px;
+    color: #444040;
+}
+
+.spacer {
+    border-radius: 20px;
+    background-color: #8CF489;
+    width: 4px;
+}
+
+.spacerde {
+    border-radius: 20px;
+    background-color: #b9b9b9;
+    width: 4px;
+}
+
+.total {
+    color: #444040;
+    background: #F2F2F2;
+    border-radius: 5px;
+    padding: 0px 3px;
+}
+
+.belanjaan {
+    display: none;
+    position: fixed;
+    width: 350px;
+}
+
+.sudah {
+    background-color: #5BE059;
+    border-radius: 5px;
+    padding: 4px 10px;
+}
+
+.belum {
+    background-color: #E06959;
+    border-radius: 5px;
+    padding: 4px 10px;
+}
+
+.tutup {
+    cursor: pointer;
+}
+
+.deactive {
+    background-color: #C4C4C4;
+    border-radius: 20px;
+    padding: 5px;
+    color: #444040;
 }
 
 @keyframes animatetop {

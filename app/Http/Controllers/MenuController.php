@@ -14,7 +14,7 @@ class MenuController extends Controller
         $daftar_pesanan = $DetailController->getAllByIdPesanan();
         $minuman = $this->getMinuman();
         $datapesanan = $this->getIdPesanan();
-        return view('Pemesanan/formtambahminuman', ['list_minuman' => $minuman, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+        return view('Tamu/formtambahminuman', ['list_minuman' => $minuman, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
     }
     //Menampilkan daftar menu makanan
     public function createMakanan(){
@@ -22,14 +22,16 @@ class MenuController extends Controller
         $daftar_pesanan = $DetailController->getAllByIdPesanan();
         $makanan = $this->getMakanan();
         $datapesanan = $this->getIdPesanan();
-        return view('Pemesanan/formtambahmakanan', ['list_makanan' => $makanan, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+        return view('Tamu/formtambahmakanan', ['list_makanan' => $makanan, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
     }
     //Menampilkan detail menu
     public function detailMenu(){
+        $DetailController = new DetailPemesananController();
+        $daftar_pesanan = $DetailController->getAllByIdPesanan();
         $idmenu = $this->getIdMenu();
         $detail = $this->getMenuById($idmenu);
         $datapesanan =  $this->getIdPesanan();
-        return view('Pemesanan/detailmenu', ['detail_menu' => $detail, 'a' => $datapesanan]);
+        return view('Tamu/detailmenu', ['detail_menu' => $detail, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
     }
     //Mengambil Id Menu
     public function getIdMenu(){
@@ -59,11 +61,11 @@ class MenuController extends Controller
     public function index(){
         //return"Menu Index";
         $menu = Menu::all();
-        return view('Makanan/index', ['menu' => $menu]);
+        return view('Admin/indexmenu', ['menu' => $menu]);
     }
     //Menampilkan Form Input
     public function create(){
-        return view('Makanan/formtambah');
+        return view('Admin/formtambahmenu');
     }
     //Menyimpan Data Ke Database
     public function store(Request $request){
@@ -76,6 +78,8 @@ class MenuController extends Controller
             'harga_menu' => $request->harga_menu,
             'kategori' => $request->kategori,
             'status' => $request->status,
+            'deskripsi' => $request->deskripsi,
+            'waktu_penyajian' => $request->waktu_penyajian,
         ]);
         if($status){
             return redirect('/Admin/Menu')->with('success', 'Menu Berhasil Ditambahkan');
@@ -86,7 +90,8 @@ class MenuController extends Controller
     //Menampilkan Form Edit Beserta Data Yang Akan diEdit
     public function edit($id_menu){
         $menu = Menu::find($id_menu);
-        return view('Makanan/formtambah', ['menu' => $menu]);
+        return view('Admin/formtambahmenu', ['menu' => $menu]);
+
     }
     //Mengubah Data Yang di Update kedalam Database
     public function update(Request $request, $id_menu){
@@ -100,6 +105,8 @@ class MenuController extends Controller
             'harga_menu' => $request->harga_menu,
             'kategori' => $request->kategori,
             'status' => $request->status,
+            'deskripsi' => $request->deskripsi,
+            'waktu_penyajian' => $request->waktu_penyajian,
         ]);
         if($status){
             return redirect('/Admin/Menu')->with('success', 'Menu Berhasil Diubah');

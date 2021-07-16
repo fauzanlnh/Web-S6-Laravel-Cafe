@@ -18,6 +18,7 @@ class CreateTablePemesanan extends Migration
             $table->date('tanggal_pemesanan');
             $table->unsignedInteger('no_meja');
             $table->string('status_pembayaran');
+            
             $table->unsignedInteger('total_pembayaran');
             $table->timestamps();
             //$table->foreign('no_meja')->references('no_meja')->on('table_meja');

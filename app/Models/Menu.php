@@ -14,7 +14,7 @@ class Menu extends Model
     protected $table = 'table_menu';
     //$fillable digunakan untuk menentukan field yang mana saja yang akan di insert kedalam database
     protected $fillable = [
-        'nama_menu', 'harga_menu', 'kategori', 'status'
+        'nama_menu', 'harga_menu', 'kategori', 'status', 'deskripsi', 'waktu_penyajian'
     ];
     public function Detail_Pemesanan(){
         return $this->hasMany('App\Models\Detail_Pemesanan');
