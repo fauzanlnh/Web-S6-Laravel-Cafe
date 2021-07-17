@@ -16,10 +16,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public $primaryKey = 'kd_pengguna';
+    //$table untuk menentukan nama tabel
+    protected $table = 'table_master';
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'username', 'password', 'hak_akses'
     ];
 
     /**

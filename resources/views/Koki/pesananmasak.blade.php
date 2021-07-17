@@ -7,6 +7,8 @@
     <title>Main Page</title>
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/tailwind.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('asset/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
 </head>
 
 <body>
@@ -27,6 +29,12 @@
                 <div class="icon">
                     <img src="{{ asset('asset/img/coffee 2.png') }}" alt="">
                 </div>
+                <a href="{{ url('/') }}">
+                    <div class="checkout flex ml-32">
+                        <i class="nav-icon fas fa-lock mr-1"></i>
+                        Logout
+                    </div>
+                </a>
             </div>
             <!-- item -->
             <div class="item-main flex justify-between">

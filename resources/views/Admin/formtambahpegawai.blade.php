@@ -47,7 +47,7 @@
       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nama_pegawai">
     @endif
   </div>
-  @error('nama_menu')
+  @error('nama_pegawai')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
@@ -61,7 +61,7 @@
     @endif
     
   </div>
-  @error('harga_menu')
+  @error('notlp_pegawai')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
@@ -74,7 +74,7 @@
       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="almt_pegawai">
     @endif
   </div>
-  @error('harga_menu')
+  @error('almt_pegawai')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
@@ -88,11 +88,6 @@
     @endif
     
   </div>
-  @error('harga_menu')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
- @enderror
  <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Username</label>
     @if(!empty($pegawai))
@@ -102,7 +97,7 @@
     @endif
     
   </div>
-  @error('harga_menu')
+  @error('username')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
@@ -110,7 +105,7 @@
  <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Hak Akses</label>
     <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" name="hak_akses">
-    <option>Pilih</option>
+    <option value="">Pilih</option>
     @if(!empty($pegawai[0]))
       @if($pegawai[0]->hak_akses == "Admin")
         <option value="Admin"  selected>Admin</option>
@@ -134,6 +129,11 @@
     @endif
   </select>
   </div>
+  @error('hak_akses')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+ @enderror
   <button type="submit" class="btn btn-primary">Submit</button>
  
 </form>

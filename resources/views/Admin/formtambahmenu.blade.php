@@ -47,6 +47,11 @@
       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nama_menu"  >
     @endif
   </div>
+  @error('nama_menu')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+ @enderror
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Deskripsi</label>
     @if(!empty($menu))
@@ -55,6 +60,11 @@
       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="deskripsi"  >
     @endif
   </div>
+  @error('deskripsi')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+ @enderror
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Waktu Penyajian</label>
     @if(!empty($menu))
@@ -63,7 +73,7 @@
       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="waktu_penyajian"  >
     @endif
   </div>
-  @error('nama_menu')
+  @error('waktu_penyajian')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
@@ -84,7 +94,7 @@
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">kategori menu</label>
     <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" name="kategori">
-    <option>Pilih</option>
+    <option value="">Pilih</option>
     @if(!empty($menu))
       @if($menu->kategori == "Makanan")
         <option value="Makanan" selected>Makanan</option>
@@ -100,10 +110,15 @@
     @endif
   </select>
   </div>
+  @error('kategori')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+ @enderror
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Status menu</label>
-    <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" name="status">
-    <option>Pilih</option>
+    <select class="form-select" id="inputGroupSelect03" aria-label="Default select example" name="status">
+    <option value="">Pilih</option>
     @if(!empty($menu))
       @if($menu->status == "Tersedia")
         <option value="Tersedia" selected>Tersedia</option>
@@ -117,10 +132,17 @@
       <option value="Tersedia" selected>Tersedia</option>
       <option value="Tidak Tersedia">Tidak Tersedia</option>
     @endif
-
-    
-    
   </select>
+  @error('status')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                        @enderror     
+  <select class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

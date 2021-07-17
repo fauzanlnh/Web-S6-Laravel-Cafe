@@ -52,11 +52,10 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                  <tr>
-                    <th>Kode Menu</th>
-                    <th>Nama Menu</th>
-                    <th>Deskripsi Menu</th>
-                    <th>Harga Menu</th>
+                    <th>Id Pemesanan</th>
+                    <th>Tanggal</th>
+                    <th>No Meja</th>
+                    <th>Total Pembayaran</th>
                   </tr>
                   </tfoot>
                 </table>

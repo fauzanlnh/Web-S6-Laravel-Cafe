@@ -36,9 +36,7 @@
   <script src="{{ asset('asset/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
   <!-- ChartJS -->
   <script src="{{ asset('asset/adminlte/plugins/chart.js/Chart.min.js') }}"></script>
-  <!-- jQuery Knob Chart -->
-  <script src="{{ asset('asset/adminlte/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-  <script src="{{ asset('asset/adminlte/js/demo.js') }}"></script>
+  
   <script>
     $(function () {
       $("#example1").DataTable({

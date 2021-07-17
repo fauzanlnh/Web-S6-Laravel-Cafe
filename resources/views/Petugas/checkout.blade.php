@@ -18,9 +18,12 @@
                 <div class="icon">
                     <img src="{{ asset('asset/img/coffee 2.png') }}" alt="">
                 </div>
-                <div class="icon mt-1">
-                    <img src="{{ asset('asset/img/cart.png') }}" alt="">
-                </div>
+                <a href="{{ url('/') }}">
+                    <div class="checkout flex ml-32">
+                        <i class="nav-icon fas fa-lock mr-1"></i>
+                        Logout
+                    </div>
+                </a>
             </div>
             <!-- item -->
             <div class="item-main flex justify-between">

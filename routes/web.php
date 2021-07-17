@@ -12,42 +12,50 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::get('/',[MakananController::class,'index']);
 
+//Index
 Route::get('/', function () {
     return view('login');
 });
-//Route::get('/',[MakananController::class,'index']);
-
+Route::get('/Login', function () {
+    return view('login');
+});
+//Route::auth();
+Route::post('Login/cekLogin', 'App\Http\Controllers\MasterController@cekLogin');
+//Route::group(['middleware' => 'auth'], function () {
 //Petugas    
 //View
     //Admin
-Route::get('/Admin','App\Http\Controllers\PemesananController@index');
-Route::get('/Admin/Menu','App\Http\Controllers\MenuController@index');
-Route::get('/Admin/Menu/Tambah','App\Http\Controllers\MenuController@create');
-Route::get('/Admin/Menu/Ubah/{id}','App\Http\Controllers\MenuController@edit');
-Route::get('/Admin/Pegawai','App\Http\Controllers\PegawaiController@index');
-Route::get('/Admin/Pegawai/Tambah','App\Http\Controllers\PegawaiController@create');
-Route::get('/Admin/Pegawai/Ubah/{id}','App\Http\Controllers\PegawaiController@edit');
-Route::get('/Admin/Pemesanan','App\Http\Controllers\PemesananController@getTransaksi');
-Route::get('/Admin/Transaksi','App\Http\Controllers\PemesananController@viewDataTransaksi');
-    //Koki
-Route::get('/Koki','App\Http\Controllers\DetailPemesananController@viewKoki');
-    //Petugas / Kasir
-Route::get('/Petugas','App\Http\Controllers\PemesananController@viewPetugas');
-Route::get('/Petugas/Checkout/{id_pemesanan}','App\Http\Controllers\PemesananController@viewCheckout');
-//CRUD
-    //Admin
-Route::post('/Admin/Menu/Save', 'App\Http\Controllers\MenuController@store');
-Route::patch('/Admin/Menu/Ubah/{id}', 'App\Http\Controllers\MenuController@update');
-Route::delete('/Admin/Menu/Delete/{id}','App\Http\Controllers\MenuController@destroy');
-Route::post('/Admin/Pegawai/Save', 'App\Http\Controllers\PegawaiController@store');
-Route::patch('/Admin/Pegawai/Ubah/{id}', 'App\Http\Controllers\PegawaiController@update');
-Route::delete('/Admin/Pegawai/Delete/{id}','App\Http\Controllers\PegawaiController@destroy');
-    //Koki
-Route::patch('/Koki/Sajikan/{id_detail}', 'App\Http\Controllers\DetailPemesananController@prosesSajikan');
-Route::patch('/Koki/Masak/{id_detail}', 'App\Http\Controllers\DetailPemesananController@prosesMasak');
-    //Petugas / Kasir
-Route::patch('/Petugas/Checkout/{id_pemesanan}', 'App\Http\Controllers\PemesananController@prosesCheckout');
+    Route::get('/Admin','App\Http\Controllers\PemesananController@index');
+    Route::get('/Admin/Menu','App\Http\Controllers\MenuController@index');
+    Route::get('/Admin/Menu/Tambah','App\Http\Controllers\MenuController@create');
+    Route::get('/Admin/Menu/Ubah/{id}','App\Http\Controllers\MenuController@edit');
+    Route::get('/Admin/Pegawai','App\Http\Controllers\PegawaiController@index');
+    Route::get('/Admin/Pegawai/Tambah','App\Http\Controllers\PegawaiController@create');
+    Route::get('/Admin/Pegawai/Ubah/{id}','App\Http\Controllers\PegawaiController@edit');
+    Route::get('/Admin/Pemesanan','App\Http\Controllers\PemesananController@getTransaksi');
+    Route::get('/Admin/Transaksi','App\Http\Controllers\PemesananController@viewDataTransaksi');
+        //Koki
+    Route::get('/Koki','App\Http\Controllers\DetailPemesananController@viewKoki');
+        //Petugas / Kasir
+    Route::get('/Petugas','App\Http\Controllers\PemesananController@viewPetugas');
+    Route::get('/Petugas/Checkout/{id_pemesanan}','App\Http\Controllers\PemesananController@viewCheckout');
+    //CRUD
+        //Admin
+    Route::post('/Admin/Menu/Save', 'App\Http\Controllers\MenuController@store');
+    Route::patch('/Admin/Menu/Ubah/{id}', 'App\Http\Controllers\MenuController@update');
+    Route::delete('/Admin/Menu/Delete/{id}','App\Http\Controllers\MenuController@destroy');
+    Route::post('/Admin/Pegawai/Save', 'App\Http\Controllers\PegawaiController@store');
+    Route::patch('/Admin/Pegawai/Ubah/{id}', 'App\Http\Controllers\PegawaiController@update');
+    Route::delete('/Admin/Pegawai/Delete/{id}','App\Http\Controllers\PegawaiController@destroy');
+        //Koki
+    Route::patch('/Koki/Sajikan/{id_detail}', 'App\Http\Controllers\DetailPemesananController@prosesSajikan');
+    Route::patch('/Koki/Masak/{id_detail}', 'App\Http\Controllers\DetailPemesananController@prosesMasak');
+        //Petugas / Kasir
+    Route::patch('/Petugas/Checkout/{id_pemesanan}', 'App\Http\Controllers\PemesananController@prosesCheckout');    
+//});
+
 
 //Tamu
 //View

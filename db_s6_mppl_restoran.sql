@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2021 at 05:48 PM
+-- Generation Time: Jul 17, 2021 at 07:46 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -107,9 +107,10 @@ CREATE TABLE `table_master` (
 --
 
 INSERT INTO `table_master` (`kd_pengguna`, `username`, `password`, `hak_akses`, `created_at`, `updated_at`) VALUES
-(1, 'fauzanlnh', 'fauzanlnh', 'Admin', NULL, '2021-07-16 02:40:31'),
-(2, 'gentraaw', 'gentraaw', 'Koki', NULL, NULL),
-(3, 'azz', 'azz', 'Petugas', '2021-07-16 02:41:55', '2021-07-16 02:41:55');
+(1, 'fauzan', '$2y$10$fiRB5Z2fcY.aThF3pgsAq.vbQYAffv/OBIEVqHK02pOL5KIyjct7C', 'Admin', NULL, '2021-07-16 22:16:12'),
+(2, 'gentra', '$2y$10$4L5ruL6lGt1MuA3WQZSkxOzD/cH51DcPvWkeKpMbl.Fer/.vX5PKS', 'Koki', NULL, '2021-07-16 22:31:08'),
+(3, 'azzz', '$2y$10$fOm70x8mOSPMxvzGBTT2peCLFnGpm0tpI1WHr9dKtYZQcqNE87.7a', 'Petugas', '2021-07-16 02:41:55', '2021-07-16 22:42:23'),
+(4, 'zaldi', '$2y$10$2I63JP54/irj7m0mrrvW8uvcy8i2bREuy8UUGZdQdMdmRpagDNiG6', 'Koki', '2021-07-16 22:44:24', '2021-07-16 22:44:24');
 
 -- --------------------------------------------------------
 
@@ -130,7 +131,7 @@ CREATE TABLE `table_meja` (
 
 INSERT INTO `table_meja` (`no_meja`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Kosong', NULL, '2021-07-15 07:00:57'),
-(2, 'Kosong', NULL, '2021-07-16 07:34:18'),
+(2, 'Terisi', NULL, '2021-07-16 22:36:49'),
 (3, 'Kosong', NULL, NULL),
 (4, 'Kosong', NULL, NULL),
 (5, 'Kosong', NULL, NULL),
@@ -207,7 +208,8 @@ CREATE TABLE `table_pegawai` (
 INSERT INTO `table_pegawai` (`kd_pegawai`, `nama_pegawai`, `notlp_pegawai`, `almt_pegawai`, `kd_penguna`, `created_at`, `updated_at`) VALUES
 (1, 'Fauzan Lukmanul Hakim', '8888', 'Kopo', 1, NULL, '2021-07-16 02:35:51'),
 (2, 'Gentra Aria Wibawa', '08089', 'Lembang', 2, NULL, NULL),
-(5, 'Azz', '0099', 'Padalarang', 3, '2021-07-16 02:41:55', '2021-07-16 02:41:55');
+(5, 'Azz', '0099', 'Padalarang', 3, '2021-07-16 02:41:55', '2021-07-16 02:41:55'),
+(6, 'rizaldi', '08080', 'Bandung', 4, '2021-07-16 22:44:24', '2021-07-16 22:44:24');
 
 -- --------------------------------------------------------
 
@@ -236,7 +238,8 @@ INSERT INTO `table_pemesanan` (`id_pemesanan`, `tanggal_pemesanan`, `no_meja`, `
 (4, '2021-04-06', 5, 'Dibayar', 40000, NULL, NULL),
 (5, '2021-05-12', 10, 'Dibayar', 60000, NULL, NULL),
 (64, '2021-06-19', 1, 'Dibayar', 528000, '2021-06-19 06:32:28', '2021-07-15 07:00:57'),
-(76, '2021-07-15', 2, 'Dibayar', 30000, '2021-07-15 03:57:53', '2021-07-16 07:34:18');
+(76, '2021-07-15', 2, 'Dibayar', 30000, '2021-07-15 03:57:53', '2021-07-16 07:34:18'),
+(77, '2021-07-17', 2, 'Masih', 0, '2021-07-16 22:36:49', '2021-07-16 22:36:49');
 
 --
 -- Indexes for dumped tables
@@ -307,7 +310,7 @@ ALTER TABLE `table_detail_pemesanan`
 -- AUTO_INCREMENT for table `table_master`
 --
 ALTER TABLE `table_master`
-  MODIFY `kd_pengguna` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `kd_pengguna` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `table_meja`
@@ -325,13 +328,13 @@ ALTER TABLE `table_menu`
 -- AUTO_INCREMENT for table `table_pegawai`
 --
 ALTER TABLE `table_pegawai`
-  MODIFY `kd_pegawai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `kd_pegawai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `table_pemesanan`
 --
 ALTER TABLE `table_pemesanan`
-  MODIFY `id_pemesanan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id_pemesanan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- Constraints for dumped tables

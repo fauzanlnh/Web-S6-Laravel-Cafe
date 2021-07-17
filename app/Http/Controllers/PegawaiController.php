@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pegawai;
 use App\Models\Master;
 use App\Http\Controllers\MasterController;
+use Hash;
 class PegawaiController extends Controller
 {
     //
@@ -22,10 +23,18 @@ class PegawaiController extends Controller
     }
     //Menyimpan Data Ke Database
     public function store(Request $request){
+        $this->validate($request,[
+            'nama_pegawai' => "required",
+            'notlp_pegawai' => "required",
+            'almt_pegawai' => "required",
+            'kd_pengguna' => "required",
+            'username' => "required",
+            'hak_akses' => "required"
+        ]);
         $status2 = Master::create([
             'hak_akses' => $request->hak_akses,
             'username' => $request->username,
-            'password' => $request->username,
+            'password' => Hash::make($request->username),
         ]); 
         $status = Pegawai::create([
             'nama_pegawai' => $request->nama_pegawai,
@@ -57,6 +66,8 @@ class PegawaiController extends Controller
             'notlp_pegawai' => "required",
             'almt_pegawai' => "required",
             'kd_pengguna' => "required",
+            'username' => "required",
+            'hak_akses' => "required"
         ]);
         $status = Pegawai::find($id_pegawai);
         $status->update([
@@ -69,7 +80,7 @@ class PegawaiController extends Controller
         $status2->update([
             'hak_akses' => $request->hak_akses,
             'username' => $request->username,
-            'password' => $request->username,
+            'password' => Hash::make($request->username),
         ]);
         if($status && $status2){
             return redirect('/Admin/Pegawai')->with('success', 'pegawai Berhasil Diubah');

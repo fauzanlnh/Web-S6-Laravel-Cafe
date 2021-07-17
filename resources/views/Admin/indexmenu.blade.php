@@ -63,7 +63,6 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                  <tr>
                     <th>Kode Menu</th>
                     <th>Nama Menu</th>
                     <th>Deskripsi Menu</th>

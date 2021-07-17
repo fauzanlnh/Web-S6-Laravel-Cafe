@@ -72,6 +72,10 @@ class MenuController extends Controller
         $this->validate($request,[
             'nama_menu' => "required",
             'harga_menu' => "required",
+            'deskripsi' => "required",
+            'waktu_penyajian' => 'required',
+            'kategori' => 'required',
+            'status'=> 'required',
         ]);
         $status = Menu::create([
             'nama_menu' => $request->nama_menu,
@@ -98,6 +102,10 @@ class MenuController extends Controller
         $this->validate($request,[
             'nama_menu' => "required",
             'harga_menu' => "required",
+            'deskripsi' => "required",
+            'waktu_penyajian' => 'required',
+            'kategori' => 'required',
+            'status'=> 'required',
         ]);
         $status = Menu::find($id_menu);
         $status->update([
