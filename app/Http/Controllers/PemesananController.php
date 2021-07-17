@@ -86,14 +86,21 @@ class PemesananController extends Controller
     public function viewInvoice(){
         $detail_controller= new DetailPemesananController();
         $datapesanan = $detail_controller->getIdPesanan();
-        $daftar_pesanan = Detail_Pemesanan::select('*')
-            ->where('table_detail_pemesanan.id_pemesanan', '=', $datapesanan[0]->id_pemesanan)
-            ->where('status_pemesanan', '=', 'Sajikan')
-            ->join('table_menu', 'table_menu.id_menu', '=', 'table_detail_pemesanan.id_menu')
-            ->join('table_pemesanan', 'table_pemesanan.id_pemesanan', '=', 'table_detail_pemesanan.id_pemesanan')
-            ->get();
-        if($daftar_pesanan[0]->status_pembayaran == 'Masih'){
-            return view('Tamu/invoice', ['daftar_pesanan' => $daftar_pesanan, 'a' => $datapesanan]);
+        if(count($datapesanan) == 0){
+            return redirect('Tamu/Pemesanan');
+        }else{
+            $daftar_pesanan = Detail_Pemesanan::select('*')
+                ->where('table_detail_pemesanan.id_pemesanan', '=', $datapesanan[0]->id_pemesanan)
+                ->where('status_pemesanan', '=', 'Sajikan')
+                ->join('table_menu', 'table_menu.id_menu', '=', 'table_detail_pemesanan.id_menu')
+                ->join('table_pemesanan', 'table_pemesanan.id_pemesanan', '=', 'table_detail_pemesanan.id_pemesanan')
+                ->get();
+            if(count($daftar_pesanan) == 0){
+                return view('Tamu/invoice', ['daftar_pesanan' => [], 'a' => $datapesanan]);
+            }
+            if($daftar_pesanan[0]->status_pembayaran == 'Masih'){
+                return view('Tamu/invoice', ['daftar_pesanan' => $daftar_pesanan, 'a' => $datapesanan]);
+            }
         }
     }
     public function viewPetugas(){

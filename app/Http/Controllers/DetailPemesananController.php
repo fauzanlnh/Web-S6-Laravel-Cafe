@@ -10,12 +10,16 @@ class DetailPemesananController extends Controller
     // Mengambil semua data berdasarkan id_pesanan dan status pesanan = keranjang
     public function getAllByIdPesanan(){
         $id_pesanan = $this->getIdPesanan();
-        $all_detail_id = Detail_Pemesanan::select('*')
+        if(count($id_pesanan) == 0){
+            return $all_detail_id = [];
+        }else{
+            $all_detail_id = Detail_Pemesanan::select('*')
             ->where('id_pemesanan', '=', $id_pesanan[0]->id_pemesanan)
             ->where('status_pemesanan', '=', 'Keranjang')
             ->join('table_menu', 'table_menu.id_menu', '=', 'table_detail_pemesanan.id_menu')
             ->get();
-        return $all_detail_id;
+            return $all_detail_id;
+        }
     }
     // Mengambil semua data berdasarkan id_pesanan dan status pesanan = order
     public function getAllByIdPesananOrder(){
@@ -99,11 +103,15 @@ class DetailPemesananController extends Controller
         
     }
 
-    public function viewDaftarPesanan(){
-        $daftar_pesanankeranjang = $this->getAllByIdPesanan();
-        $daftar_pesanan = $this->getAllByIdPesananOrder();
+    public function viewDaftarPesanan(){        
         $datapesanan = $this->getIdPesanan();
-        return view('Tamu/daftarpemesanan', ['daftar_pesanan' => $daftar_pesanan, 'a' => $datapesanan, 'b' => $daftar_pesanankeranjang]);
+        if(count($datapesanan) == 0){
+            return redirect('Tamu/Pemesanan');
+        }else{
+            $daftar_pesanankeranjang = $this->getAllByIdPesanan();
+            $daftar_pesanan = $this->getAllByIdPesananOrder();
+            return view('Tamu/daftarpemesanan', ['daftar_pesanan' => $daftar_pesanan, 'a' => $datapesanan, 'b' => $daftar_pesanankeranjang]);
+        }
     }
     public function viewKoki(){
         $daftarpesanan = $this->getAllOrder();
@@ -157,6 +165,10 @@ class DetailPemesananController extends Controller
             ->where('no_meja', '=', $this->getNoMeja())
             ->where('status_pembayaran', '=', "Masih")
             ->get();
-        return $pemesanan;
+        if($pemesanan){
+            return $pemesanan;
+        }else{
+            $pemesanan =[];
+        }
     }
 }

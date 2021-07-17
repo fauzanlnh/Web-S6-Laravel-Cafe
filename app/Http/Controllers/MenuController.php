@@ -10,28 +10,40 @@ class MenuController extends Controller
     //Customer
     //Menampilkan daftar menu minuman
     public function createMinuman(){
-        $DetailController = new DetailPemesananController();
-        $daftar_pesanan = $DetailController->getAllByIdPesanan();
-        $minuman = $this->getMinuman();
         $datapesanan = $this->getIdPesanan();
-        return view('Tamu/formtambahminuman', ['list_minuman' => $minuman, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+        if(count($datapesanan) == 0){
+            return redirect('Tamu/Pemesanan');
+        }else{
+            $DetailController = new DetailPemesananController();
+            $daftar_pesanan = $DetailController->getAllByIdPesanan();
+            $minuman = $this->getMinuman();
+            return view('Tamu/formtambahminuman', ['list_minuman' => $minuman, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+        }
     }
     //Menampilkan daftar menu makanan
     public function createMakanan(){
-        $DetailController = new DetailPemesananController();
-        $daftar_pesanan = $DetailController->getAllByIdPesanan();
-        $makanan = $this->getMakanan();
         $datapesanan = $this->getIdPesanan();
-        return view('Tamu/formtambahmakanan', ['list_makanan' => $makanan, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+        if(count($datapesanan) == 0){
+            return redirect('Tamu/Pemesanan');
+        }else{
+            $makanan = $this->getMakanan();
+            $DetailController = new DetailPemesananController();
+            $daftar_pesanan = $DetailController->getAllByIdPesanan();
+            return view('Tamu/formtambahmakanan', ['list_makanan' => $makanan, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+        }
     }
     //Menampilkan detail menu
     public function detailMenu(){
-        $DetailController = new DetailPemesananController();
-        $daftar_pesanan = $DetailController->getAllByIdPesanan();
-        $idmenu = $this->getIdMenu();
-        $detail = $this->getMenuById($idmenu);
-        $datapesanan =  $this->getIdPesanan();
-        return view('Tamu/detailmenu', ['detail_menu' => $detail, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+        $datapesanan = $this->getIdPesanan();
+        if(count($datapesanan) == 0){
+            return redirect('Tamu/Pemesanan');
+        }else{
+            $DetailController = new DetailPemesananController();
+            $daftar_pesanan = $DetailController->getAllByIdPesanan();
+            $idmenu = $this->getIdMenu();
+            $detail = $this->getMenuById($idmenu);
+            return view('Tamu/detailmenu', ['detail_menu' => $detail, 'a' => $datapesanan, 'daftar_pesanan' => $daftar_pesanan]);
+        }
     }
     //Mengambil Id Menu
     public function getIdMenu(){
@@ -52,7 +64,12 @@ class MenuController extends Controller
             ->where('no_meja', '=', $this->getNoMeja())
             ->where('status_pembayaran', '=', "Masih")
             ->get();
-        return $pemesanan;
+        
+        if($pemesanan){
+            return $pemesanan;
+        }else{
+            $pemesanan =[];
+        }
     }
 
 

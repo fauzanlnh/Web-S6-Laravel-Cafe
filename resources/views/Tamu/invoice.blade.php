@@ -80,6 +80,7 @@
                     Tunjukan Invoice Ini
             </div>
             <div class="list-pesanan  overflow-auto mt-2">
+                @if(!empty($daftar_pesanan))
                 @foreach($daftar_pesanan as $item)
                     <div class="rekomend flex items-center w-full mt-4">
                         <div class="bag-1">
@@ -92,6 +93,7 @@
                         </div>
                     </div>
                 @endforeach
+                @endif
                 <!--<img src="{{ asset('asset/img/pemesanan.png')}}" alt="" class="mx-auto">!-->
             </div>
         </div>

@@ -23,7 +23,7 @@ Route::get('/Login', function () {
 });
 //Route::auth();
 Route::post('Login/cekLogin', 'App\Http\Controllers\MasterController@cekLogin');
-//Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
 //Petugas    
 //View
     //Admin
@@ -54,7 +54,7 @@ Route::post('Login/cekLogin', 'App\Http\Controllers\MasterController@cekLogin');
     Route::patch('/Koki/Masak/{id_detail}', 'App\Http\Controllers\DetailPemesananController@prosesMasak');
         //Petugas / Kasir
     Route::patch('/Petugas/Checkout/{id_pemesanan}', 'App\Http\Controllers\PemesananController@prosesCheckout');    
-//});
+});
 
 
 //Tamu
