@@ -51,7 +51,7 @@
                 <div class="font-bold">
                     List Pesanan
                 </div>
-                <!-- sudah -->
+                <!-- sudah  -->
                 @foreach($daftar_pesanan as $item)                
                 @if($item->status_pemesanan == 'Masak')
                 <form action="{{ url('/Koki/Sajikan/'.$item->id_detail) }}" method="POST" 

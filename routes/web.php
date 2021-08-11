@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Admin/Pegawai/Ubah/{id}','App\Http\Controllers\PegawaiController@edit');
     Route::get('/Admin/Pemesanan','App\Http\Controllers\PemesananController@getTransaksi');
     Route::get('/Admin/Transaksi','App\Http\Controllers\PemesananController@viewDataTransaksi');
+    Route::get('/Admin/Transaksi/Export','App\Http\Controllers\PemesananController@export_excel');
         //Koki
     Route::get('/Koki','App\Http\Controllers\DetailPemesananController@viewKoki');
         //Petugas / Kasir

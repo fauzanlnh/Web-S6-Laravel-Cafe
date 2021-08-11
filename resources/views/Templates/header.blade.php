@@ -55,7 +55,7 @@ $tes = explode('/',$currentURL);
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="#" class="brand-link text-center">
-        <span class="brand-text font-weight-light">Nama Restorean</span>
+        <span class="brand-text font-weight-light">Hayyu Coffee</span>
       </a>
       <!-- Sidebar -->
       <div class="sidebar">
@@ -67,6 +67,7 @@ $tes = explode('/',$currentURL);
             <li class="nav-item">
             <?php
               if(empty($tes[8])){
+                //if(empty($tes[5])){
             ?>
                 <a href="#" class="nav-link active">
             <?php
@@ -83,7 +84,9 @@ $tes = explode('/',$currentURL);
             
             <?php
             if(!empty($tes[8])){
+              //if(!empty($tes[5])){
               if($tes[8] == 'Menu'){
+              //if($tes[5] == 'Menu'){
             ?>
               <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">  
@@ -125,6 +128,8 @@ $tes = explode('/',$currentURL);
             <?php
             if(!empty($tes[8])){
               if($tes[8] == 'Pegawai'){
+                //if(!empty($tes[5])){
+              //if($tes[5] == 'Pegawai'){
             ?>
               <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">  
@@ -167,6 +172,8 @@ $tes = explode('/',$currentURL);
             <?php
               if(!empty($tes[8])){
                 if($tes[8] == 'Transaksi'){
+              //if(!empty($tes[5])){
+                //if($tes[5] == 'Transaksi'){
             ?>
                 <a href="#" class="nav-link active">
             <?php

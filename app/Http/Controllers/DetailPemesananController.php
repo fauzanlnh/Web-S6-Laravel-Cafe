@@ -156,6 +156,7 @@ class DetailPemesananController extends Controller
     public function getNoMeja(){
         $currentURL = \URL::current();
         $tes = explode('/',$currentURL);
+        //return $tes[5]
         return $tes[8];
     }
     public function getIdPesanan(){

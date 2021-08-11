@@ -49,12 +49,14 @@ class MenuController extends Controller
     public function getIdMenu(){
         $currentURL = \URL::current();
         $tes = explode('/',$currentURL);
+        //return$tes[8];
         return $tes[11];
     }
     //Mengambil Id Pesanan dari No Meja
     public function getNoMeja(){
         $currentURL = \URL::current();
         $tes = explode('/',$currentURL);
+        //return $tes[5];
         return $tes[8];
     }
     public function getIdPesanan(){

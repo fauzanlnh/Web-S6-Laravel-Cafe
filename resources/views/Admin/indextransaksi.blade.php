@@ -59,6 +59,7 @@
                   </tr>
                   </tfoot>
                 </table>
+                <a href="{{url('/Admin/Transaksi/Export')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
               </div>
               <!-- /.card-body -->
             </div>

@@ -10,6 +10,8 @@ use App\Models\Meja;
 use Carbon\Carbon;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MejaController;
+//use Maatwebsite\Excel\Facades\Excel;
+//use App\Exports\SiswaExport;
 class PemesananController extends Controller
 {
     public $aaa=1;
@@ -104,7 +106,7 @@ class PemesananController extends Controller
         }
     }
     public function viewPetugas(){
-        $daftar_pesanan = DB::table('table_detail_pemesanan')
+        $daftar_pesanan = DB::table('table_detail_pemesanan ')
             ->selectRaw('table_pemesanan.id_pemesanan, sum(total_per_detail) as total')
             ->where('status_pembayaran', '=', 'Masih')
             ->where('table_detail_pemesanan.status_pemesanan', '=', 'Sajikan')
@@ -150,6 +152,7 @@ class PemesananController extends Controller
     public function getIdPemesanan(){
         $currentURL = \URL::current();
         $tes = explode('/',$currentURL);
+        return $tes[6];
         return $tes[9];
     }
     //Menampilkan Form Edit Beserta Data Yang Akan diEdit
@@ -175,4 +178,9 @@ class PemesananController extends Controller
         $pemesanan = Pemesanan::where('status_pembayaran', 'Dibayar')->get(); 
         return view('Admin/indextransaksi', ['pemesanan' => $pemesanan]); 
     }
+    /*
+    public function export_excel(){
+        return Excel::download(new SiswaExport, 'TransaksiPenjualan.xlsx');
+    }
+    */
 }

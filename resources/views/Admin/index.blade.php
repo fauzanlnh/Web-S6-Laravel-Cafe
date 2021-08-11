@@ -34,7 +34,7 @@
               <div class="icon">
                 <i class="ion ion-ios-book"></i>
               </div>
-              <a href="v_data_buku.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ url('Admin/Transaksi/') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -49,7 +49,7 @@
                 <div class="icon">
                   <i class="ion ion-ios-book"></i>
                 </div>
-                <a href="v_data_peminjaman.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ url('Admin/Transaksi/') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -63,7 +63,7 @@
                 <div class="icon">
                 <i class="ion ion-ios-book"></i>
                 </div>
-                <a href="v_data_buku_hilang.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ url('Admin/Menu/') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             
